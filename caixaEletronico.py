@@ -1,18 +1,22 @@
 class caixaEletronico:
     def __init__(self, nome):
-        self.notas = {100: 10, 50: 25, 20: 100, 10: 200, 5: 200}
+        self.notas = {100: 0, 50: 0, 20: 0, 10: 0, 5: 0}
         self.nome_banco = nome
         self.total_notas = 0
-
-        for k, v in self.notas.items():
-            valor = k * v
-            self.total_notas = self.total_notas + valor
+        self.alimentar_caixa()
 
     def validarValor(self, valor):
         if (valor % 5) == 0 and (valor < self.total_notas):
             return True
         else:
             return False
+
+    def alimentar_caixa(self):
+        for k in self.notas:
+            qnt = int(input(f'Informe a quantidade de notas de R$ {k},00: '))
+            valor = k * qnt
+            self.notas[k] = qnt
+            self.total_notas = self.total_notas + valor
 
     def sacar(self, valor_saque):
         sacado = []
@@ -29,7 +33,6 @@ class caixaEletronico:
                         else:
                             quantidade -= 1
                             break
-
                     if quantidade > 0:
                         sacado.append(f'{quantidade} nota de R$ {nota},00')
 
