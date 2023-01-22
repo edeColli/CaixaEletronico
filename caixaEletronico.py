@@ -19,7 +19,7 @@ class caixaEletronico:
                         quantidade += 1
                         valor_saque = valor_saque - nota
 
-                    msg = str(quantidade) + ' nota de R$ ' + str(nota)+',00'
+                    msg = f'{quantidade} nota de R$ {nota},00'
                     if quantidade > 0:
                         self.imprimir_resultado(msg)
 
