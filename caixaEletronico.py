@@ -12,10 +12,11 @@ class caixaEletronico:
             return False
 
     def alimentar_caixa(self):
-        for k in self.notas:
-            qnt = int(input(f'Informe a quantidade de notas de R$ {k},00: '))
-            valor = k * qnt
-            self.notas[k] = qnt
+        for nota in self.notas:
+            qnt = int(
+                input(f'Informe a quantidade de notas de R$ {nota},00: '))
+            valor = nota * qnt
+            self.notas[nota] = qnt
             self.total_notas = self.total_notas + valor
 
     def sacar(self, valor_saque):
